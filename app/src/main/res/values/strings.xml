@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">CodeManager</string>
+
+    <string name="empty"> </string>
+    <string name="load">Load</string>
+    <string name="upload">Upload</string>
+    <string name="description">description</string>
+    <string name="intent_item_web_site">intent_item_web_site</string>
+    <string name="intent_result">intent_result</string>
+    <string name="intent_item_position">intent_item_position</string>
+    <string name="intent_item_page">intent_item_page</string>
+
+</resources>

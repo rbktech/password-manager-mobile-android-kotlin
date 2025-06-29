@@ -1,0 +1,54 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+}
+
+android {
+    namespace 'ru.rbz.codemanager'
+    compileSdk 35
+
+    defaultConfig {
+        applicationId "ru.rbz.codemanager"
+        minSdk 21
+        targetSdk 35
+        versionCode 1
+        versionName "1.0.1"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+        }
+
+        applicationVariants.all { variant ->
+            variant.outputs.each { output ->
+
+                def newName = output.outputFile.name
+                newName = newName.replace("app-", "codemanager-")
+                newName = newName.replace(".apk", "-" + versionName + ".apk")
+                output.outputFileName = newName
+            }
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    useLibrary 'org.apache.http.legacy'
+}
+
+dependencies {
+
+    // implementation fileTree(dir: "../libs", include: ["*.jar", "*.aar"])
+
+    implementation 'androidx.activity:activity:1.8.1'
+    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'androidx.appcompat:appcompat:1.4.1'
+    implementation 'com.google.android.material:material:1.5.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
+    testImplementation 'junit:junit:4.13.2'
+}
